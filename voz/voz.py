@@ -1,6 +1,6 @@
 from subprocess import call
 from time import sleep
-from datetime import date
+from datetime import time
 
 def hablar(texto):
     print texto
@@ -8,6 +8,6 @@ def hablar(texto):
     call(["mpg123", "-q", url])
      
 hablar("hola")
-print date.now()
+print time.now()
 sleep(60)
-print data.now()
+print time.now()
