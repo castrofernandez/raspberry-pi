@@ -1,0 +1,27 @@
+#!/bin/sh
+# /etc/init.d/test
+
+### BEGIN INIT INFO
+# Provides:          luces
+# Required-Start:    $remote_fs $syslog
+# Required-Stop:     $remote_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Luces PiGlow
+# Description:       Luces PiGlow
+### END INIT INFO
+
+
+ case "$1" in
+  start)
+    sudo python /home/pi/Desarrollo/luces/luces.py &
+    ;;
+  stop)
+    killall python
+    ;;
+  *)
+    exit 1
+    ;;
+
+esac
+exit 0
