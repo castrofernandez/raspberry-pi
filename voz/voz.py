@@ -1,6 +1,6 @@
 from subprocess import call
 from time import sleep
-from datetime
+import datetime
 
 def hablar(texto):
     print texto
