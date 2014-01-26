@@ -14,7 +14,7 @@
 
  case "$1" in
   start)
-    sudo python /home/pi/Desarrollo/voz/voz.py &
+    sudo python /home/pi/Desarrollo/raspberry-pi/voz/voz.py &
     ;;
   stop)
     killall python
