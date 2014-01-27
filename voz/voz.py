@@ -10,8 +10,10 @@ FIN = 21
 
 def hablar(texto):
     print texto
-    texto = urllib.quote(texto.encode('utf8'))
+    #texto = urllib.quote(texto.encode('utf8'))
+    texto = texto.encode('utf8')
     url = "http://translate.google.com/translate_tts?tl=es&q=" + texto
+    print url
     try:
         call(["mpg123", "-q", url])
     except:
