@@ -3,12 +3,14 @@ from time import sleep
 import datetime
 import noticias
 import hora
+import urllib
 
 INICIO = 8
 FIN = 21
 
 def hablar(texto):
     print texto
+    texto = urllib.quote(texto.encode('utf8'))
     url = "http://translate.google.com/translate_tts?tl=es&q=" + texto
     try:
         call(["mpg123", "-q", url])
