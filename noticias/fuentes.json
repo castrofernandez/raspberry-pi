@@ -1,7 +1,6 @@
-{ 
-	"fuentes" : [
-				"http://ep00.epimg.net/rss/tags/ultimas_noticias.xml", 
-				"http://ep00.epimg.net/rss/elpais/portada.xml", 
+{
+	"fuentes" : [ 
+				"http://ep00.epimg.net/rss/elpais/portada.xml",
 				"http://www.elcomercio.es/portada.xml"
 			]
 }

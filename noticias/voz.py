@@ -17,13 +17,13 @@ def hablar(texto):
         call(["mpg123", "-q", url])
     except:
         pass
-        
+
 def esperar(tiempo):
     minutos = tiempo / 60
     segundos = tiempo % 60
     print "Esperando " + str(minutos) + " minutos y " + str(segundos) + " segundos"
     sleep(tiempo)
-   
+
 def contarNoticias():
     # Obtenemos noticias
     n = noticias.obtenerNoticias()
@@ -37,7 +37,7 @@ def contarNoticias():
         hablar(noticia[0])
         # Se dice resumen
         hablar(noticia[1])
-     
+
 hablar("hola")
 
 while(True):
@@ -47,6 +47,6 @@ while(True):
     if ahora.minute == 0:
         if ahora.hour >= INICIO and ahora.hour <= FIN:
             hablar(hora.queHoraEs(ahora.hour))
-    elif ahora.minute % 5 == 0:
-        contarNoticias() 
+    elif ahora.hour >= INICIO and ahora.hour <= FIN and ahora.minute % 5 == 0:
+        contarNoticias()
     esperar(60) # Se espera un minuto
