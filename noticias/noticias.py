@@ -1,10 +1,12 @@
+import os
 import feedparser
 import random
 import nltk
 import json
 
 # Fuentes RSS obtenidas de fuentes.json
-fuentes_json = open('./fuentes.json')
+os.chdir('.')
+fuentes_json = open('fuentes.json')
 fuentes = json.load(fuentes_json)['fuentes']
 
 class Noticias:
