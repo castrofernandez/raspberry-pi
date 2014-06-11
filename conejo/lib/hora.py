@@ -25,7 +25,8 @@ def obtenerTiempo():
 def decirHora(fichero):
     #obtenerMP3('ES', obtenerTiempo(), fichero)
     
-    return "STREAM %s" % fichero
+    return "http://192.168.1.192/vl/audio/hora.mp3"
+    #return "STREAM %s" % fichero
 
 #if __name__=="__main__":
 #    decirHora('./audio/hora.mp3')
