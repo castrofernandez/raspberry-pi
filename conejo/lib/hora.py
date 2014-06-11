@@ -3,7 +3,6 @@
 import sys
 import datetime
 
-sys.path.append('./lib')
 from tts import obtenerMP3
 
 def obtenerTiempo():
