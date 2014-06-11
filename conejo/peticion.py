@@ -2,9 +2,7 @@
 #-*- mode: python; coding: utf-8 -*-
 import sys
 import datetime
-
-sys.path.append('./lib')
-from hora import decirHora
+import lib
 
 if __name__=="__main__":
-    print decirHora()
+    print lib.hora.decirHora('./audio/hora.mp3')
