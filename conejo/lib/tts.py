@@ -4,7 +4,7 @@ import urllib, urllib2
 from os import path
 
 def obtenerMP3(idioma, mensaje, nombre = None):
-    print "Obteniendo audio para: %s" % mensaje
+    #print "Obteniendo audio para: %s" % mensaje
     
     base  = "http://translate.google.com/translate_tts"
     valores   = { 'q': mensaje, 'tl': idioma }
@@ -19,7 +19,7 @@ def obtenerMP3(idioma, mensaje, nombre = None):
     ofp = open(nombre,"wb")
     ofp.write(respuesta.read())
     
-    print "Fichero guardado: %s" % nombre
+    #print "Fichero guardado: %s" % nombre
     
     return 
 
