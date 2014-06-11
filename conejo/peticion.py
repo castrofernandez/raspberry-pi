@@ -4,4 +4,5 @@ import sys
 import datetime
 import lib
 
+
 print lib.hora.decirHora('./audio/hora.mp3')
