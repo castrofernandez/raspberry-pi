@@ -5,7 +5,7 @@ import nltk
 import json
 
 # Fuentes RSS obtenidas de fuentes.json
-os.chdir('.')
+os.chdir(os.path.expanduser('~') + '/Desarrollo/raspberry-pi/noticias')
 fuentes_json = open('fuentes.json')
 fuentes = json.load(fuentes_json)['fuentes']
 

@@ -14,7 +14,7 @@
 
  case "$1" in
   start)
-    sudo python /home/pi/desarrollo/raspberry-pi/noticias/notificaciones.py &
+    sudo python /home/pi/Desarrollo/raspberry-pi/noticias/notificaciones.py &
     ;;
   stop)
     killall python
