@@ -4,7 +4,7 @@ import nltk
 import json
 
 # Fuentes RSS obtenidas de fuentes.json
-fuentes_json = open('fuentes.json')
+fuentes_json = open('./fuentes.json')
 fuentes = json.load(fuentes_json)['fuentes']
 
 class Noticias:
