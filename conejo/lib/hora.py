@@ -23,7 +23,7 @@ def obtenerTiempo():
     return "Son las %i %s" % (hora, minutos)
 
 def decirHora(fichero):
-    obtenerMP3('ES', obtenerTiempo(), fichero)
+    #obtenerMP3('ES', obtenerTiempo(), fichero)
     
     return "PLAY %s" % fichero
 
