@@ -5,7 +5,7 @@ from hora import decirHora
 from tts import obtenerMP3
 
 def procesarComando(serie, boton, rfid):
-  if boton == 3:
+  if boton == "3":
     return procesarAccionBoton()
   elif rfid != None and rfid != "":
     return procesarRFID(rfid)

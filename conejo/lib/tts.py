@@ -13,7 +13,7 @@ def obtenerMP3(idioma, mensaje, nombre = None):
     peticion.add_header("User-Agent", "Mozilla/5.0 (X11; U; Linux i686) Gecko/20071127 Firefox/2.0.0.11" )
     respuesta = urllib2.urlopen(peticion)
 
-    if( nombre == None ):
+    if (nombre == None):
         nombre = "_".join(mensaje.split())
 
     ofp = open(nombre, "wb")
