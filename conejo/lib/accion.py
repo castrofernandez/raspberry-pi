@@ -42,17 +42,17 @@ class CoreografiaBasica(Coreografia):
     colores = self.__colores()
 
     acciones = [
-                accion.apagar(),
                 accion.luz(1, colores[0]),
                 accion.esperar(1000),
                 accion.luz(2, colores[1]),
                 accion.esperar(1000),
                 accion.luz(3, colores[2]),
-                accion.esperar(1000)
+                accion.esperar(1000),
+                accion.apagar()
               ]
 
     c = super(CoreografiaBasica, self).procesar(acciones)
-    coreografia = super(CoreografiaBasica, self).procesar([c, c, c, c, c, c, accion.panza(Accion.color())])
+    coreografia = super(CoreografiaBasica, self).procesar([c, c, c, c, c, c, accion.panza(Accion.colorPanza())])
 
     return coreografia
 
@@ -63,6 +63,9 @@ class CoreografiaBasica(Coreografia):
 class Accion:
   colores = ['AMBER', 'GREEN', 'RED', 'TEAL','VIOLET', 'YELLOW']
 
+  coloresPanza = ['BOTTOMRED', 'BOTTOMGREEN', 'BOTTOMYELLOW', 'BOTTOMVIOLET',
+                  'BOTTOMTEAL', 'BOTTOMWHITE', 'BOTTOMORANGE']
+
   def __init__(self, serie):
     self.serie = serie
 
@@ -71,8 +74,8 @@ class Accion:
     return accion
 
   def panza(self, color):
-    if color not in Accion.colores:
-      color = Accion.colores[0]
+    if color not in Accion.coloresPanza:
+      color = Accion.coloresPanza[0]
 
     return "BOTTOMCOLOR %s" % color
 
@@ -119,6 +122,11 @@ class Accion:
     return Accion.colores[indice]
 
   @classmethod
+  def colorPanza(cls):
+    indice = randint(0, len(Accion.coloresPanza) - 1)
+    return Accion.coloresPanza[indice]
+
+  @classmethod
   def encolarAccion(cls, serie, accion):
     cola.encolarComando(serie, accion)
     auditarPeticion(LOG, serie, None, None, accion)
@@ -130,7 +138,7 @@ class Accion:
 if __name__=="__main__":
   import sys, argparse
 
-  ejemplo = "%s [--decir hola] [--luz 1-AMBER] [--apagar] [--esperar 1000] [--gizda 0] [--gizda 1] [--arriba] [--abajo] [--dormir] [--panza YELLOW]" % sys.argv[0]
+  ejemplo = "%s [--decir hola] [--luz 1-AMBER] [--apagar] [--esperar 1000] [--gizda 0] [--gizda 1] [--arriba] [--abajo] [--dormir] [--panza BOTTOMYELLOW]" % sys.argv[0]
 
   parser  = argparse.ArgumentParser(description = ejemplo)
   parser.add_argument('--decir',  "-d", help = 'Texto para decir.', default = None)
