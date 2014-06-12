@@ -87,7 +87,7 @@ class Accion:
 
   @classmethod
   def color(cls):
-    indice = randint(0, len(Accion.colores))
+    indice = randint(0, len(Accion.colores) - 1)
     return Accion.colores[indice]
 
   @classmethod

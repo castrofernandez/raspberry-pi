@@ -23,3 +23,4 @@ Thu, 12 Jun 2014 18:15:24 - serie: num_serie boton: None RFID: None accion: SLEE
 Thu, 12 Jun 2014 18:34:04 - serie: num_serie boton: None RFID: None accion: SLEEP
 Thu, 12 Jun 2014 18:36:36 - serie: num_serie boton: None RFID: None accion: SLEEP
 Thu, 12 Jun 2014 18:37:03 - serie: num_serie boton: None RFID: None accion: SLEEP
+Thu, 12 Jun 2014 18:57:35 - serie: num_serie boton: None RFID: None accion: LEDOFF
