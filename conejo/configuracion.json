@@ -1,5 +1,9 @@
 {
   "despertar": 8,
   "dormir": 23,
-  "reloj": true
+  "reloj": true,
+  "fuentes": [
+		"http://ep00.epimg.net/rss/elpais/portada.xml",
+		"http://www.elcomercio.es/rss/atom/?seccion=asturias"
+	]
 }

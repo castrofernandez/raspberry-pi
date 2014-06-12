@@ -1,45 +1,57 @@
-#!/usr/bin/env python
-#-*- mode: python; coding: utf-8 -*-
-import sys
-import datetime
-import lib
+import os
+import feedparser
+import random
+import nltk
 import json
 
-LOG = './log/peticiones.txt'
-CONFIGURACION = json.load(open('./configuracion.json'))
+class Noticias:
+    def __init__(self):
+        self.noticias = []
 
-dormir = lib.accion.Accion("serie").dormir()
+    def insertar(self, titulo, resumen, enlace):
+        self.noticias.append((titulo, resumen, enlace))
 
-def estaDespierto(instante):
-  hora = instante[0]
+    def obtener(self, indice):
+        return self.noticias[indice]
 
-  return hora >= CONFIGURACION["despertar"] and hora < CONFIGURACION["dormir"]
+    def longitud(self):
+        return len(self.noticias)
 
-def procesarAccion(serie, boton, rfid):
-  ahora = datetime.datetime.now().time()
-  instante = (ahora.hour, ahora.minute)
+def obtenerNoticias(fuentes):
+    # Retorno
+    todas_noticias = []
 
-  if not estaDespierto(instante):
-    print dormir
-    return
+    # Procesamos fuentes
+    for fuente in fuentes:
+        resultado = Noticias()
+        todas_noticias.append(resultado)
+        # Descargamos la fuente
+        noticias = feedparser.parse(fuente)
+        titulo_fuente = noticias['feed']['title']
 
-  resultado = lib.comando.Comando(CONFIGURACION).procesarComando(instante, serie, boton, rfid)
-  lib.log.auditarPeticion(LOG, serie, boton, rfid, resultado)
+        # Recorremos noticias
+        for noticia in noticias['entries']:
+            noticia_titulo =  noticia['title'].encode('UTF-8', 'replace')
+            noticia_resumen = nltk.clean_html(noticia['summary']).encode('UTF-8', 'replace')
+            noticia_enlace = noticia['link'].encode('UTF-8', 'replace')
 
-  print resultado
+            resultado.insertar(noticia_titulo, noticia_resumen, noticia_enlace)
 
-if __name__=="__main__":
-  import sys, argparse
+    resultado = Noticias()
 
-  ejemplo = "%s --serie 0019db9e9367 --boton 1 --rfid d0021a0353063b72" % sys.argv[0]
+    longitud = 0
 
-  parser  = argparse.ArgumentParser( description=ejemplo )
-  parser.add_argument('--serie',   "-s", help = 'Número de serie.', required = True )
-  parser.add_argument('--boton',   "-b", help = 'Botón pulsado. Sí o no.', default = None )
-  parser.add_argument('--rfid',  "-r", help = 'RFID posicionado sobre nariz.', default = None )
-  args = parser.parse_args()
+    for fuente in todas_noticias:
+      longitud = max(longitud, fuente.longitud())
 
-  if not args.serie == None:
-    procesarAccion(args.serie, args.boton, args.rfid)
-  else:
-      print "Introduza número de serie."
+    for i in range(longitud):
+      for fuente in todas_noticias:
+        if (i >= fuente.longitud()):
+          continue
+
+        resultado.insertar(fuente.obtener(i)[0], fuente.obtener(i)[1], fuente.obtener(i)[2])
+
+    return resultado
+
+if __name__ == "__main__":
+    print obtenerNoticias()

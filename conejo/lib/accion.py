@@ -158,7 +158,7 @@ if __name__=="__main__":
 
   if not args.decir == None:
     resultado = accion.decir(args.decir)
-    encolarAccion(accion.serie, resultado)
+    Accion.encolarAccion(accion.serie, resultado)
   elif not args.luz == None:
     params = args.luz.split("-")
 
