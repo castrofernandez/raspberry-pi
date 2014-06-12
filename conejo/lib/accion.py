@@ -17,19 +17,43 @@ class Coreografia(object):
     return "\n".join(acciones)
 
 class CoreografiaBasica(Coreografia):
+  def __colores(self):
+    colores = [Accion.color()]
+
+    color = Accion.color()
+
+    while color in colores:
+      color = Accion.color()
+
+    colores.append(color)
+
+    color = Accion.color()
+
+    while color in colores:
+      color = Accion.color()
+
+    colores.append(color)
+
+    return colores
+
   def procesar(self):
     accion = Accion("serie")
+
+    colores = self.__colores()
+
     acciones = [
                 accion.apagar(),
-                accion.luz(1, Accion.color()),
+                accion.luz(1, colores[0]),
                 accion.esperar(1000),
-                accion.luz(2, Accion.color()),
+                accion.luz(2, colores[1]),
                 accion.esperar(1000),
-                accion.luz(3, Accion.color()),
+                accion.luz(3, colores[2]),
                 accion.esperar(1000)
               ]
+
+    inicio = super(CoreografiaBasica, self).procesar([accion.apagar(), accion.panza(Accion.color)])
     c = super(CoreografiaBasica, self).procesar(acciones)
-    coreografia = super(CoreografiaBasica, self).procesar([c, c, c, c, c, c])
+    coreografia = super(CoreografiaBasica, self).procesar([inicio, c, c, c, c, c, c, c, c])
 
     return coreografia
 
@@ -47,6 +71,12 @@ class Accion:
     accion = obtenerMP3('ES', texto, './audio/mensaje.mp3')
     return accion
 
+  def panza(self, color):
+    if color not in Accion.colores:
+      color = Accion.colores[0]
+
+    return "BOTTOMCOLOR %s" % color
+
   def luz(self, led, color):
     if color not in Accion.colores:
       color = Accion.colores[0]
@@ -55,8 +85,7 @@ class Accion:
     if led not in [1, 2, 3]:
       led = 1
 
-    accion = "LED%i %s" % (led, color)
-    return accion
+    return "LED%i %s" % (led, color)
 
   def apagar(self):
     return "LEDOFF"
@@ -102,7 +131,7 @@ class Accion:
 if __name__=="__main__":
   import sys, argparse
 
-  ejemplo = "%s [--decir hola] [--luz 1-AMBER] [--apagar] [--esperar 1000] [--gizda 0] [--gizda 1] [--arriba] [--abajo] [--dormir]" % sys.argv[0]
+  ejemplo = "%s [--decir hola] [--luz 1-AMBER] [--apagar] [--esperar 1000] [--gizda 0] [--gizda 1] [--arriba] [--abajo] [--dormir] [--panza YELLOW]" % sys.argv[0]
 
   parser  = argparse.ArgumentParser(description = ejemplo)
   parser.add_argument('--decir',  "-d", help = 'Texto para decir.', default = None)
@@ -114,6 +143,7 @@ if __name__=="__main__":
   parser.add_argument('--arriba',  "-r", help = 'Orejas arriba.', action = 'store_true')
   parser.add_argument('--abajo',  "-b", help = 'Orejas abajo.', action = 'store_true')
   parser.add_argument('--dormir',  "-o", help = 'Orejas abajo.', action = 'store_true')
+  parser.add_argument('--panza',  "-p", help = 'Color de panza.', default = None)
   args = parser.parse_args()
 
   accion = Accion("num_serie")
@@ -149,6 +179,9 @@ if __name__=="__main__":
     Accion.encolarAccion(accion.serie, resultado)
   elif args.dormir == True:
     resultado = accion.dormir()
+    Accion.encolarAccion(accion.serie, resultado)
+  elif not args.panza == None:
+    resultado = accion.panza(args.panza)
     Accion.encolarAccion(accion.serie, resultado)
   else:
     print "Introduza una acción."
