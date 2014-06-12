@@ -1,14 +1,12 @@
 #!/usr/bin/env python
 #-*- mode: python; coding: utf-8 -*-
-import os
 import sys
 import datetime
 import lib
 import json
 
-LOG = path = os.path.join(os.path.dirname(__file__), "log/peticiones.txt")
-configuracion = os.path.join(os.path.dirname(__file__), "configuracion.json")
-CONFIGURACION = json.load(open(configuracion))
+LOG = './log/peticiones.txt'
+CONFIGURACION = json.load(open('./configuracion.json'))
 
 dormir = lib.accion.Accion("serie").dormir()
 

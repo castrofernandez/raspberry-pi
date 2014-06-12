@@ -1,12 +1,13 @@
 #!/usr/bin/python
 #-*- mode: python; coding: utf-8 -*-
 
+import os
 from tts import obtenerMP3
 from log import auditarPeticion
 import cola
 from random import randint
 
-LOG = './log/acciones.txt'
+LOG = os.path.join(os.path.dirname(__file__), "../log/acciones.txt")
 
 ################################################################################
 #                              CLASE COREOGRAFIA

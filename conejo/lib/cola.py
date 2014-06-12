@@ -1,9 +1,10 @@
 #!/usr/bin/python
 #-*- mode: python; coding: utf-8 -*-
 
+import os
 import sqlite3
 
-BASE = "./bd/conejo.db"
+BASE = os.path.join(os.path.dirname(__file__), "../bd/conejo.db")
 
 class Comando:
   def __init__(self, id, serie, comando, fecha):
