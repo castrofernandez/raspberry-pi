@@ -2,10 +2,9 @@
 #-*- mode: python; coding: utf-8 -*-
 import urllib, urllib2
 from os import path
+from pydub import AudioSegment
 
 def obtenerMP3(idioma, mensaje, nombre = None):
-    #print "Obteniendo audio para: %s" % mensaje
-
     base  = "http://translate.google.com/translate_tts"
     valores   = { 'q': mensaje, 'tl': idioma }
     data     = urllib.urlencode(valores)
@@ -19,7 +18,13 @@ def obtenerMP3(idioma, mensaje, nombre = None):
     ofp = open(nombre, "wb")
     ofp.write(respuesta.read())
 
-    #print "Fichero guardado: %s" % nombre
+    # Aumentar volumen
+    cancion = AudioSegment.from_mp3(nombre)
+
+    # Aumentar decibelios
+    cancion = cancion + 10
+
+    cancion.export(nombre, "mp3")
 
     return "PLAY %s" % nombre
 
