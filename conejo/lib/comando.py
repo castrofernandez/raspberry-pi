@@ -4,6 +4,7 @@
 from hora import decirHora
 from tts import obtenerMP3
 import cola
+import accion
 
 def procesarComando(serie, boton, rfid):
   if boton == "3":
@@ -28,4 +29,5 @@ def ejecutarAccionProgramada():
   if comando != None:
     return comando.comando
   else:
-    return decirHora('./audio/hora.mp3')
+    return accion.CoreografiaBasica().procesar()
+    #return decirHora('./audio/hora.mp3')

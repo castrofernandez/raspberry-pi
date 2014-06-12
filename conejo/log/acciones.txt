@@ -10,3 +10,16 @@ Thu, 12 Jun 2014 17:35:39 - serie: num_serie boton: None RFID: None accion: LED3
 Thu, 12 Jun 2014 17:42:18 - serie: num_serie boton: None RFID: None accion: LED3 TEAL
 Thu, 12 Jun 2014 17:44:40 - serie: num_serie boton: None RFID: None accion: LED3 TEAL
 Thu, 12 Jun 2014 17:44:49 - serie: num_serie boton: None RFID: None accion: RIGHTTWITCH 1
+Thu, 12 Jun 2014 17:54:38 - serie: num_serie boton: None RFID: None accion: LEDOFF
+Thu, 12 Jun 2014 17:55:18 - serie: num_serie boton: None RFID: None accion: LEDOFF
+Thu, 12 Jun 2014 17:56:39 - serie: num_serie boton: None RFID: None accion: LEDOFF
+Thu, 12 Jun 2014 18:04:38 - serie: num_serie boton: None RFID: None accion: LEDOFF
+Thu, 12 Jun 2014 18:05:20 - serie: num_serie boton: None RFID: None accion: LEDOFF
+Thu, 12 Jun 2014 18:05:49 - serie: num_serie boton: None RFID: None accion: EARSUP
+Thu, 12 Jun 2014 18:05:57 - serie: num_serie boton: None RFID: None accion: EARSDOWN
+Thu, 12 Jun 2014 18:06:00 - serie: num_serie boton: None RFID: None accion: LEDOFF
+Thu, 12 Jun 2014 18:13:54 - serie: num_serie boton: None RFID: None accion: LEDOFF
+Thu, 12 Jun 2014 18:15:24 - serie: num_serie boton: None RFID: None accion: SLEEP
+Thu, 12 Jun 2014 18:34:04 - serie: num_serie boton: None RFID: None accion: SLEEP
+Thu, 12 Jun 2014 18:36:36 - serie: num_serie boton: None RFID: None accion: SLEEP
+Thu, 12 Jun 2014 18:37:03 - serie: num_serie boton: None RFID: None accion: SLEEP
