@@ -15,11 +15,11 @@ def obtenerMP3(idioma, mensaje, nombre = None):
     if (nombre == None):
         nombre = "_".join(mensaje.split())
 
-    ofp = open(nombre, "wb")
+    ofp = open("_" + nombre, "wb")
     ofp.write(respuesta.read())
 
     # Aumentar volumen
-    cancion = AudioSegment.from_mp3(nombre)
+    cancion = AudioSegment.from_mp3("_" + nombre)
 
     # Aumentar decibelios
     cancion = cancion + 10
