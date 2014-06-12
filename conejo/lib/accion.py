@@ -51,7 +51,7 @@ class CoreografiaBasica(Coreografia):
                 accion.esperar(1000)
               ]
 
-    inicio = super(CoreografiaBasica, self).procesar([accion.apagar(), accion.panza(Accion.color)])
+    inicio = super(CoreografiaBasica, self).procesar([accion.apagar(), accion.panza(Accion.color())])
     c = super(CoreografiaBasica, self).procesar(acciones)
     coreografia = super(CoreografiaBasica, self).procesar([inicio, c, c, c, c, c, c, c, c])
 
