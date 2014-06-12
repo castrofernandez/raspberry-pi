@@ -13,10 +13,10 @@ def procesarComando(serie, boton, rfid):
     return ejecutarAccionProgramada()
 
 def procesarAccionBoton():
-  return obtenerMP3('ES', "Me has tocado la cabeza", './audio/tts.mp3')
+  return obtenerMP3('ES', "Me has tocado la cabeza", './audio/boton.mp3')
 
 def procesarRFID(rfid):
-  return obtenerMP3('ES', "Me has tocado la nariz", './audio/tts.mp3')
+  return obtenerMP3('ES', "Me has tocado la nariz", './audio/rfid.mp3')
 
 def ejecutarAccionProgramada():
   return decirHora('./audio/hora.mp3')
