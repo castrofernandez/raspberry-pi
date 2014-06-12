@@ -12,7 +12,7 @@ def procesarComando(serie, boton, rfid):
   #else:
   #  return ejecutarAccionProgramada()
   boton = "si" if boton == "3" else "no"
-  nariz = "si" if rfid != None and rfid != "" else "no"
+  nariz = rfid
   return obtenerMP3('ES', "Boton %s y Nariz %s" % (boton, nariz), './audio/aux.mp3')
 
 def procesarAccionBoton():
