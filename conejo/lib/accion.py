@@ -18,15 +18,14 @@ class Coreografia(object):
 
 class CoreografiaBasica(Coreografia):
   def procesar(self):
-    color = Accion.color()
     accion = Accion("serie")
     acciones = [
                 accion.apagar(),
-                accion.luz(1, color),
+                accion.luz(1, Accion.color()),
                 accion.esperar(1000),
-                accion.luz(2, color),
+                accion.luz(2, Accion.color()),
                 accion.esperar(1000),
-                accion.luz(3, color),
+                accion.luz(3, Accion.color()),
                 accion.esperar(1000)
               ]
     c = super(CoreografiaBasica, self).procesar(acciones)
