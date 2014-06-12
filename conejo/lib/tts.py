@@ -5,7 +5,7 @@ from os import path
 
 def obtenerMP3(idioma, mensaje, nombre = None):
     #print "Obteniendo audio para: %s" % mensaje
-    
+
     base  = "http://translate.google.com/translate_tts"
     valores   = { 'q': mensaje, 'tl': idioma }
     data     = urllib.urlencode(valores)
@@ -21,7 +21,7 @@ def obtenerMP3(idioma, mensaje, nombre = None):
 
     #print "Fichero guardado: %s" % nombre
 
-    return
+    return "PLAY %s" % nombre
 
 def procesarLista(idioma, fichero):
     ifp = open(fichero)

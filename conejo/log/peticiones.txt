@@ -3,3 +3,6 @@ jue, 12 jun 2014 09:37:33 - serie: 1 botón: 1 RFID: None
 jue, 12 jun 2014 09:37:34 - serie: 1 botón: 1 RFID: None 
 jue, 12 jun 2014 09:37:36 - serie: 1 botón: 1 RFID: None 
 Thu, 12 Jun 2014 09:45:44 - serie: 1 botón: 1 RFID: None 
+Thu, 12 Jun 2014 10:16:51 - serie: 1 botón: 1 RFID: None 
+Thu, 12 Jun 2014 10:17:10 - serie: 1 botón: 1 RFID: None 
+Thu, 12 Jun 2014 10:17:13 - serie: 1 botón: 1 RFID: None 
