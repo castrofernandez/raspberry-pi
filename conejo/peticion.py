@@ -3,11 +3,27 @@
 import sys
 import datetime
 import lib
+import json
 
 LOG = './log/peticiones.txt'
+CONFIGURACION = json.load(open('./configuracion.json'))
+
+dormir = lib.accion.Accion("serie").dormir()
+
+def estaDespierto(instante):
+  hora = instante[0]
+
+  return hora >= CONFIGURACION["despertar"] and hora < CONFIGURACION["dormir"]
 
 def procesarAccion(serie, boton, rfid):
-  resultado = lib.comando.procesarComando(serie, boton, rfid)
+  ahora = datetime.datetime.now().time()
+  instante = (ahora.hour, ahora.minute)
+
+  if not estaDespierto(instante):
+    print dormir
+    return
+
+  resultado = lib.comando.Comando(CONFIGURACION).procesarComando(instante, serie, boton, rfid)
   lib.log.auditarPeticion(LOG, serie, boton, rfid, resultado)
 
   print resultado
