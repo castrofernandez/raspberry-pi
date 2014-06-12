@@ -20,3 +20,5 @@ Thu, 12 Jun 2014 10:44:38 - serie: 1 botón: 1 RFID: None acción: PLAY ./audio/
 Thu, 12 Jun 2014 10:44:38 - serie: 1 botón: 1 RFID: None acción: PLAY ./audio/hora.mp3
 Thu, 12 Jun 2014 10:44:42 - serie: 1 botón: 1 RFID: None acción: PLAY ./audio/hora.mp3
 Thu, 12 Jun 2014 10:45:02 - serie: 1 botón: 1 RFID: 33 acción: PLAY ./audio/tts.mp3
+Thu, 12 Jun 2014 10:57:50 - serie: 1 botón: 1 RFID: 33 acción: PLAY ./audio/boton.mp3
+Thu, 12 Jun 2014 10:57:57 - serie: 1 botón: 1 RFID: 33 acción: PLAY ./audio/aux.mp3
