@@ -28,3 +28,4 @@ Thu, 12 Jun 2014 19:02:01 - serie: num_serie boton: None RFID: None accion: LEDO
 Thu, 12 Jun 2014 19:05:52 - serie: num_serie boton: None RFID: None accion: LEDOFF
 Thu, 12 Jun 2014 19:06:24 - serie: num_serie boton: None RFID: None accion: BOTTOMCOLOR YELLOW
 Thu, 12 Jun 2014 19:15:41 - serie: num_serie boton: None RFID: None accion: BOTTOMCOLOR YELLOW
+Thu, 12 Jun 2014 19:32:05 - serie: num_serie boton: None RFID: None accion: BOTTOMCOLOR BOTTOMRED
