@@ -4,3 +4,9 @@ Thu, 12 Jun 2014 17:16:23 - serie: num_serie boton: None RFID: None accion: PLAY
 Thu, 12 Jun 2014 17:21:49 - serie: num_serie boton: None RFID: None accion: LED1 GREEN
 Thu, 12 Jun 2014 17:23:56 - serie: num_serie boton: None RFID: None accion: LED1 GREEN
 Thu, 12 Jun 2014 17:28:30 - serie: num_serie boton: None RFID: None accion: LED1 GREEN
+Thu, 12 Jun 2014 17:32:59 - serie: num_serie boton: None RFID: None accion: LED2 GREEN
+Thu, 12 Jun 2014 17:33:18 - serie: num_serie boton: None RFID: None accion: LED3 TEAL
+Thu, 12 Jun 2014 17:35:39 - serie: num_serie boton: None RFID: None accion: LED3 TEAL
+Thu, 12 Jun 2014 17:42:18 - serie: num_serie boton: None RFID: None accion: LED3 TEAL
+Thu, 12 Jun 2014 17:44:40 - serie: num_serie boton: None RFID: None accion: LED3 TEAL
+Thu, 12 Jun 2014 17:44:49 - serie: num_serie boton: None RFID: None accion: RIGHTTWITCH 1
