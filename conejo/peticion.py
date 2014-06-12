@@ -7,10 +7,10 @@ import lib
 LOG = './log/peticiones.txt'
 
 def procesarAccion(serie, boton, rfid):
-  lib.log.auditarPeticion(LOG, serie, boton, rfid)
-  #print lib.hora.decirHora('./audio/hora.mp3')
-  print lib.comando.procesarComando(serie, boton, rfid)
+  resultado = lib.comando.procesarComando(serie, boton, rfid)
+  lib.log.auditarPeticion(LOG, serie, boton, rfid, resultado)
 
+  print resultado
 if __name__=="__main__":
   import sys, argparse
 

@@ -15,3 +15,4 @@ Thu, 12 Jun 2014 10:30:26 - serie: 1 botón: 3 RFID: None
 Thu, 12 Jun 2014 10:31:05 - serie: 1 botón: 3 RFID: None 
 Thu, 12 Jun 2014 10:31:12 - serie: 1 botón: 3 RFID: None 
 Thu, 12 Jun 2014 10:31:18 - serie: 1 botón: 3 RFID: None 
+Thu, 12 Jun 2014 10:37:31 - serie: 1 botón: 3 RFID: None acción: PLAY ./audio/tts.mp3
