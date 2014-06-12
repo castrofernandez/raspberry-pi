@@ -11,6 +11,7 @@ def procesarAccion(serie, boton, rfid):
   lib.log.auditarPeticion(LOG, serie, boton, rfid, resultado)
 
   print resultado
+
 if __name__=="__main__":
   import sys, argparse
 
