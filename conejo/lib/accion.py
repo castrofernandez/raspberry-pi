@@ -63,8 +63,8 @@ class CoreografiaBasica(Coreografia):
 class Accion:
   colores = ['AMBER', 'GREEN', 'RED', 'TEAL','VIOLET', 'YELLOW']
 
-  coloresPanza = ['BOTTOMRED', 'BOTTOMGREEN', 'BOTTOMYELLOW', 'BOTTOMVIOLET',
-                  'BOTTOMTEAL', 'BOTTOMWHITE', 'BOTTOMORANGE']
+  coloresPanza = ['Red', 'Green', 'Yellow', 'Violet',
+                  'Teal', 'White', 'Orange']
 
   def __init__(self, serie):
     self.serie = serie
