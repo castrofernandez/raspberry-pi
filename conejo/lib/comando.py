@@ -2,6 +2,7 @@
 #-*- mode: python; coding: utf-8 -*-
 
 from hora import decirHora
+from tts import obtenerMP3
 
 def procesarComando(serie, boton, rfid):
   if boton == 3:
