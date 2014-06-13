@@ -113,6 +113,10 @@ class Accion:
   def dormir(self):
     return "SLEEP"
 
+  def encolar(self, texto):
+    cola.encolarComando(self.serie, texto)
+    auditarPeticion(LOG, self.serie, None, None, texto)
+
   def __giro(self, sentido):
     sentido = int(sentido)
     return sentido if sentido in [0, 1] else 0
