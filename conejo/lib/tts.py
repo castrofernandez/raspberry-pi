@@ -15,8 +15,8 @@ def obtenerMP3(idioma, mensaje, nombre = None):
     if (nombre == None):
         nombre = "_".join(mensaje.split())
 
-    aux = nombre + ".aux.mp3"
-    ofp = open(aux, "wb")
+    #aux = nombre + ".aux.mp3"
+    ofp = open(nombre, "wb")
     ofp.write(respuesta.read())
 
     # Aumentar volumen
