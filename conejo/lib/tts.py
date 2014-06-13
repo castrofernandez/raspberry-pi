@@ -2,7 +2,7 @@
 #-*- mode: python; coding: utf-8 -*-
 import urllib, urllib2
 from os import path
-from pydub import AudioSegment
+#from pydub import AudioSegment
 
 def obtenerMP3(idioma, mensaje, nombre = None):
     base  = "http://translate.google.com/translate_tts"
@@ -20,12 +20,12 @@ def obtenerMP3(idioma, mensaje, nombre = None):
     ofp.write(respuesta.read())
 
     # Aumentar volumen
-    cancion = AudioSegment.from_mp3(aux)
+    #cancion = AudioSegment.from_mp3(aux)
 
     # Aumentar decibelios
-    cancion = cancion + 10
+    #cancion = cancion + 10
 
-    cancion.export(nombre, "mp3")
+    #cancion.export(nombre, "mp3")
 
     return "PLAY %s" % nombre
 
