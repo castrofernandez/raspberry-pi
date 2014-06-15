@@ -3,7 +3,7 @@
 
 import os
 from tts import obtenerMP3
-from log import auditarPeticion
+#from log import auditarPeticion
 import cola
 from random import randint
 
@@ -115,7 +115,7 @@ class Accion:
 
   def encolar(self, texto):
     cola.encolarComando(self.serie, texto)
-    auditarPeticion(LOG, self.serie, None, None, texto)
+    #auditarPeticion(LOG, self.serie, None, None, texto)
 
   def __giro(self, sentido):
     sentido = int(sentido)
@@ -134,7 +134,7 @@ class Accion:
   @classmethod
   def encolarAccion(cls, serie, accion):
     cola.encolarComando(serie, accion)
-    auditarPeticion(LOG, serie, None, None, accion)
+    #auditarPeticion(LOG, serie, None, None, accion)
 
 ################################################################################
 #                                     MAIN

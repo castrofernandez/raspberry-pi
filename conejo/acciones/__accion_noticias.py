@@ -6,7 +6,7 @@ import sqlite3
 
 BASE = os.path.join(os.path.dirname(__file__), "../bd/conejo.db")
 
-FRECUENCIA = 15
+FRECUENCIA = 10
 
 ################################################################################
 #                                  NOTICIAS
