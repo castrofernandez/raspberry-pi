@@ -53,7 +53,7 @@ class CoreografiaBasica(Coreografia):
               ]
 
     c = super(CoreografiaBasica, self).procesar(acciones)
-    coreografia = super(CoreografiaBasica, self).procesar([c, c, c, c, c, c, accion.panza(Accion.colorPanza())])
+    coreografia = super(CoreografiaBasica, self).procesar([c, c, c, c, c, c, c, c, accion.panza(Accion.colorPanza())])
 
     return coreografia
 
