@@ -15,8 +15,8 @@ class Tiempo:
     self.accion = accion
 
   def ejecutar(self, instante):
-    #if instante[0] % FRECUENCIA != 0:
-    #  return
+    if instante[0] % FRECUENCIA != 0:
+      return
 
     tiempo = self.__obtenerTiempo(HOY)
 
