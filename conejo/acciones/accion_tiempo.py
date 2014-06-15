@@ -37,6 +37,8 @@ class Tiempo:
     maxima = pronostico[1].find('data').findall('forecast')[dia].attrib['value']
     descripcion = pronostico[5].find('data').findall('forecast')[dia].attrib['value']
 
+    descripcion = descripcion.encode('utf8')
+
     pronostico = ""
 
     if dia == HOY:
