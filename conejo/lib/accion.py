@@ -7,7 +7,9 @@ from tts import obtenerMP3
 import cola
 from random import randint
 
-LOG = os.path.join(os.path.dirname(__file__), "../log/acciones.txt")
+#LOG = os.path.join(os.path.dirname(__file__), "../log/acciones.txt")
+import datetime
+import logging
 
 ################################################################################
 #                              CLASE COREOGRAFIA
@@ -115,6 +117,7 @@ class Accion:
 
   def encolar(self, texto):
     cola.encolarComando(self.serie, texto)
+    log(accion)
     #auditarPeticion(LOG, self.serie, None, None, texto)
 
   def __giro(self, sentido):
@@ -134,7 +137,16 @@ class Accion:
   @classmethod
   def encolarAccion(cls, serie, accion):
     cola.encolarComando(serie, accion)
+    log(accion)
     #auditarPeticion(LOG, serie, None, None, accion)
+
+  @classmethod
+  def log(accion):
+    fecha = str(datetime.date.today())
+    LOG = os.path.join(os.path.dirname(__file__), "log/acciones_%s.log" % fecha)
+
+    logging.basicConfig(filename = LOG, level = logging.ERROR)
+    logging.info('%s %s' % (datetime.datetime.now().strftime("%d-%m-%Y %H:%M"), accion))
 
 ################################################################################
 #                                     MAIN
