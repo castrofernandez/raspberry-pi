@@ -20,8 +20,9 @@ import lib
 RUTA_ACCIONES = os.path.join(os.path.dirname(__file__), "acciones")
 FRECUENCIA = 60 # Una iteracion cada 60 segundos
 CONFIGURACION = os.path.join(os.path.dirname(__file__), "configuracion.json")
+LOG = os.path.join(os.path.dirname(__file__), "log/errores.log")
 
-logging.basicConfig(filename = 'log/errores.log', level = logging.ERROR)
+logging.basicConfig(filename = LOG, level = logging.ERROR)
 
 ################################################################################
 #                                    BUCLE
