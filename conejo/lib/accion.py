@@ -119,7 +119,7 @@ class Accion:
 
   def encolar(self, texto):
     cola.encolarComando(self.serie, texto)
-    self.log(texto)
+    Accion.log(texto)
     #auditarPeticion(LOG, self.serie, None, None, texto)
 
   def __giro(self, sentido):
@@ -139,7 +139,7 @@ class Accion:
   @classmethod
   def encolarAccion(cls, serie, accion):
     cola.encolarComando(serie, accion)
-    self.log(accion)
+    Accion.log(accion)
     #auditarPeticion(LOG, serie, None, None, accion)
 
   @classmethod
