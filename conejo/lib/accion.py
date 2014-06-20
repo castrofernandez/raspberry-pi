@@ -11,6 +11,7 @@ import datetime
 import logging
 
 MENSAJE = os.path.join(os.path.dirname(__file__), "../audio/mensaje.mp3")
+MENSAJE_RUTA = './audio/mensaje.mp3'
 
 ################################################################################
 #                              CLASE COREOGRAFIA
@@ -74,7 +75,7 @@ class Accion:
     self.serie = serie
 
   def decir(self, texto):
-    accion = obtenerMP3('ES', texto, MENSAJE)
+    accion = obtenerMP3('ES', texto, MENSAJE, MENSAJE_RUTA)
     return accion
 
   def panza(self, color):
@@ -118,7 +119,7 @@ class Accion:
 
   def encolar(self, texto):
     cola.encolarComando(self.serie, texto)
-    log(accion)
+    self.log(accion)
     #auditarPeticion(LOG, self.serie, None, None, texto)
 
   def __giro(self, sentido):
@@ -138,7 +139,7 @@ class Accion:
   @classmethod
   def encolarAccion(cls, serie, accion):
     cola.encolarComando(serie, accion)
-    log(accion)
+    self.log(accion)
     #auditarPeticion(LOG, serie, None, None, accion)
 
   @classmethod

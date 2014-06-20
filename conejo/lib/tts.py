@@ -4,7 +4,7 @@ import urllib, urllib2
 from os import path
 #from pydub import AudioSegment
 
-def obtenerMP3(idioma, mensaje, nombre = None):
+def obtenerMP3(idioma, mensaje, nombre = None, ruta = None):
     base  = "http://translate.google.com/translate_tts"
     valores   = { 'q': mensaje, 'tl': idioma }
     data     = urllib.urlencode(valores)
@@ -26,6 +26,9 @@ def obtenerMP3(idioma, mensaje, nombre = None):
     #cancion = cancion + 10
 
     #cancion.export(nombre, "mp3")
+
+    if nombre != None:
+      nombre = ruta
 
     return "PLAY %s" % nombre
 
