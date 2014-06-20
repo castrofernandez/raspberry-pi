@@ -7,9 +7,10 @@ from tts import obtenerMP3
 import cola
 from random import randint
 
-#LOG = os.path.join(os.path.dirname(__file__), "../log/acciones.txt")
 import datetime
 import logging
+
+MENSAJE = os.path.join(os.path.dirname(__file__), "../audio/mensaje.mp3")
 
 ################################################################################
 #                              CLASE COREOGRAFIA
@@ -73,7 +74,7 @@ class Accion:
     self.serie = serie
 
   def decir(self, texto):
-    accion = obtenerMP3('ES', texto, './audio/mensaje.mp3')
+    accion = obtenerMP3('ES', texto, MENSAJE)
     return accion
 
   def panza(self, color):
