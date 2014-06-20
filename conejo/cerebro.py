@@ -13,11 +13,15 @@ from rpyc.utils.server import ThreadedServer
 from threading import Thread
 from tendo import singleton
 
+import logging
+
 import lib
 
 RUTA_ACCIONES = os.path.join(os.path.dirname(__file__), "acciones")
 FRECUENCIA = 60 # Una iteracion cada 60 segundos
 CONFIGURACION = os.path.join(os.path.dirname(__file__), "configuracion.json")
+
+logging.basicConfig(filename = 'log/errores.log', level = logging.ERROR)
 
 ################################################################################
 #                                    BUCLE
@@ -64,7 +68,10 @@ class Bucle():
 
   def __ejecutarAcciones(self, instante):
     for accion in self.__acciones:
-      accion.ejecutar(instante)
+      try:
+        accion.ejecutar(instante)
+      except Exception:
+        logging.error('Error en accion', exc_info = True)
 
   def __obtenerAcciones(self):
     instancias = []
@@ -115,14 +122,17 @@ bucle = Bucle(CONFIGURACION)
 
 class Servicio(rpyc.Service):
   def exposed_peticion(self, serie, boton, rfid):
-    if not bucle.estaDespierto(None):
-      return lib.accion.Accion(serie).dormir()
-    elif boton == "3":
-      return self.__procesarAccionBoton(serie)
-    elif rfid != None and rfid != "":
-      return self.__procesarRFID(serie, rfid)
-    else:
-      return self.__comprobarAccionesProgramadas()
+    try:
+      if not bucle.estaDespierto(None):
+        return lib.accion.Accion(serie).dormir()
+      elif boton == "3":
+        return self.__procesarAccionBoton(serie)
+      elif rfid != None and rfid != "":
+        return self.__procesarRFID(serie, rfid)
+      else:
+        return self.__comprobarAccionesProgramadas()
+    except Exception:
+      logging.error('Error en peticion', exc_info = True)
 
   def __procesarAccionBoton(self, serie):
     return lib.accion.Accion(serie).decir("Me has tocado la cabeza")
