@@ -143,7 +143,7 @@ class Accion:
     #auditarPeticion(LOG, serie, None, None, accion)
 
   @classmethod
-  def log(accion):
+  def log(cls, accion):
     fecha = str(datetime.date.today())
     LOG = os.path.join(os.path.dirname(__file__), "log/acciones_%s.log" % fecha)
 
