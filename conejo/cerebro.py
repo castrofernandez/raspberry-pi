@@ -39,6 +39,12 @@ class Bucle():
     ahora = datetime.datetime.now()
     instante = (ahora.hour, ahora.minute)
 
+    fecha = str(datetime.date.today())
+    LOG = os.path.join(os.path.dirname(__file__), "../log/acciones_%s.log" % fecha)
+
+    logging.basicConfig(filename = LOG, level = logging.INFO)
+    logging.info(instante)
+
     if self.estaDespierto(instante):
       self.__ejecutarAcciones(instante)
 
