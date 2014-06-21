@@ -1,0 +1,11 @@
+ERROR:root:Error en accion
+Traceback (most recent call last):
+  File "cerebro.py", line 80, in __ejecutarAcciones
+    accion.ejecutar(instante)
+  File "acciones/accion_noticias.py", line 23, in ejecutar
+    accion = self.accion.decir(elegida)
+  File "/Users/juancastrofernandez/Desarrollo/raspberry-pi/conejo/lib/accion.py", line 78, in decir
+    accion = obtenerMP3('ES', texto, MENSAJE, MENSAJE_RUTA)
+  File "/Users/juancastrofernandez/Desarrollo/raspberry-pi/conejo/lib/tts.py", line 19, in obtenerMP3
+    ofp = open(nombre, "wb")
+IOError: [Errno 2] No such file or directory: '/Users/juancastrofernandez/Desarrollo/raspberry-pi/conejo/lib/../audio/mensaje.mp3'

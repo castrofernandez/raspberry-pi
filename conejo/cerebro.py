@@ -17,10 +17,11 @@ import logging
 
 import lib
 
-RUTA_ACCIONES = os.path.join(os.path.dirname(__file__), "acciones")
+RUTA = os.path.dirname(__file__)
+RUTA_ACCIONES = os.path.join(RUTA, "acciones")
 FRECUENCIA = 60 # Una iteracion cada 60 segundos
-CONFIGURACION = os.path.join(os.path.dirname(__file__), "configuracion.json")
-LOG = os.path.join(os.path.dirname(__file__), "log/errores.log")
+CONFIGURACION = os.path.join(RUTA, "configuracion.json")
+LOG = os.path.join(RUTA, "log/errores.log")
 
 logging.basicConfig(filename = LOG, level = logging.ERROR)
 
@@ -38,12 +39,6 @@ class Bucle():
   def iteracion(self):
     ahora = datetime.datetime.now()
     instante = (ahora.hour, ahora.minute)
-
-    fecha = str(datetime.date.today())
-    LOG = os.path.join(os.path.dirname(__file__), "../log/acciones_%s.log" % fecha)
-
-    logging.basicConfig(filename = LOG, level = logging.INFO)
-    logging.info(instante)
 
     if self.estaDespierto(instante):
       self.__ejecutarAcciones(instante)
