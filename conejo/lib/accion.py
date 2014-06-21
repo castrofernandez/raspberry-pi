@@ -147,7 +147,7 @@ class Accion:
     fecha = str(datetime.date.today())
     LOG = os.path.join(os.path.dirname(__file__), "../log/acciones_%s.log" % fecha)
 
-    logging.basicConfig(filename = LOG, level = logging.ERROR)
+    logging.basicConfig(filename = LOG, level = logging.INFO)
     logging.info('%s %s' % (datetime.datetime.now().strftime("%d-%m-%Y %H:%M"), accion))
 
 ################################################################################
