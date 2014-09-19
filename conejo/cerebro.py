@@ -14,6 +14,7 @@ from threading import Thread
 from tendo import singleton
 
 import logging
+from logging.handlers import TimedRotatingFileHandler
 
 import lib
 
@@ -23,7 +24,14 @@ FRECUENCIA = 60 # Una iteracion cada 60 segundos
 CONFIGURACION = os.path.join(RUTA, "configuracion.json")
 LOG = os.path.join(RUTA, "log/errores.log")
 
-logging.basicConfig(filename = LOG, level = logging.ERROR)
+bitacora = logging.getLogger("Log")
+bitacora.setLevel(logging.INFO)
+
+manejador = TimedRotatingFileHandler(LOG,
+                                       when = "midnight",
+                                       interval = 1,
+                                       backupCount = 5)
+bitacora.addHandler(manejador)
 
 ################################################################################
 #                                    BUCLE
@@ -39,6 +47,8 @@ class Bucle():
   def iteracion(self):
     ahora = datetime.datetime.now()
     instante = (ahora.hour, ahora.minute)
+
+    bitacora.info(instante)
 
     if self.estaDespierto(instante):
       self.__ejecutarAcciones(instante)
@@ -73,12 +83,12 @@ class Bucle():
       try:
         accion.ejecutar(instante)
       except Exception:
-        logging.error('Error en accion', exc_info = True)
+        bitacora.error('Error en accion', exc_info = True)
 
   def __obtenerAcciones(self):
     instancias = []
 
-    a = lib.accion.Accion("serie")
+    a = lib.accion.Accion("serie", bitacora)
     configuracion = self.configuracion
 
     acciones = pkgutil.iter_modules(path = [RUTA_ACCIONES])
@@ -134,7 +144,7 @@ class Servicio(rpyc.Service):
       else:
         return self.__comprobarAccionesProgramadas()
     except Exception:
-      logging.error('Error en peticion', exc_info = True)
+      bitacora.error('Error en peticion', exc_info = True)
 
   def __procesarAccionBoton(self, serie):
     return lib.accion.Accion(serie).decir("Me has tocado la cabeza")

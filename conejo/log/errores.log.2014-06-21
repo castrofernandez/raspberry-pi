@@ -1,0 +1,130 @@
+(20, 59)
+(21, 0)
+21-06-2014 21:00 PLAY ./audio/mensaje.mp3
+21-06-2014 21:00 PLAY ./audio/mensaje.mp3
+(21, 1)
+(21, 2)
+(21, 3)
+(21, 4)
+(21, 5)
+(21, 6)
+(21, 7)
+(21, 8)
+(21, 9)
+(21, 10)
+21-06-2014 21:10 PLAY ./audio/mensaje.mp3
+(21, 11)
+(21, 12)
+(21, 13)
+(21, 14)
+(21, 15)
+(21, 16)
+(21, 17)
+(21, 18)
+(21, 19)
+(21, 20)
+21-06-2014 21:20 PLAY ./audio/mensaje.mp3
+(21, 21)
+(21, 22)
+(21, 23)
+(21, 24)
+(21, 25)
+(21, 26)
+(21, 27)
+(21, 28)
+(21, 29)
+(21, 30)
+21-06-2014 21:30 PLAY ./audio/mensaje.mp3
+(21, 31)
+(21, 32)
+(21, 33)
+(21, 34)
+(21, 35)
+(21, 36)
+(21, 37)
+(21, 38)
+(21, 39)
+(21, 40)
+21-06-2014 21:40 PLAY ./audio/mensaje.mp3
+(21, 41)
+(21, 42)
+(21, 43)
+(21, 44)
+(21, 45)
+(21, 46)
+(21, 47)
+(21, 48)
+(21, 49)
+(21, 50)
+21-06-2014 21:51 PLAY ./audio/mensaje.mp3
+(21, 52)
+(21, 53)
+(21, 54)
+(21, 55)
+(21, 56)
+(21, 57)
+(21, 58)
+(21, 59)
+(22, 0)
+21-06-2014 22:00 PLAY ./audio/mensaje.mp3
+21-06-2014 22:00 PLAY ./audio/mensaje.mp3
+(22, 1)
+(22, 2)
+(22, 3)
+(22, 4)
+(22, 5)
+(22, 6)
+(22, 7)
+(22, 8)
+(22, 9)
+(22, 10)
+Error en accion
+Traceback (most recent call last):
+  File "cerebro.py", line 84, in __ejecutarAcciones
+    accion.ejecutar(instante)
+  File "acciones/accion_noticias.py", line 23, in ejecutar
+    accion = self.accion.decir(elegida)
+  File "/Users/juancastrofernandez/Desarrollo/raspberry-pi/conejo/lib/accion.py", line 78, in decir
+    accion = obtenerMP3('ES', texto, MENSAJE, MENSAJE_RUTA)
+  File "/Users/juancastrofernandez/Desarrollo/raspberry-pi/conejo/lib/tts.py", line 13, in obtenerMP3
+    respuesta = urllib2.urlopen(peticion)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/urllib2.py", line 127, in urlopen
+    return _opener.open(url, data, timeout)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/urllib2.py", line 410, in open
+    response = meth(req, response)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/urllib2.py", line 523, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/urllib2.py", line 448, in error
+    return self._call_chain(*args)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/urllib2.py", line 382, in _call_chain
+    result = func(*args)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/urllib2.py", line 531, in http_error_default
+    raise HTTPError(req.get_full_url(), code, msg, hdrs, fp)
+HTTPError: HTTP Error 404: Not Found
+(22, 11)
+(22, 12)
+(22, 13)
+(22, 14)
+(22, 15)
+(22, 16)
+(22, 17)
+(22, 18)
+(22, 19)
+(22, 20)
+21-06-2014 22:20 PLAY ./audio/mensaje.mp3
+(22, 21)
+(22, 22)
+(22, 23)
+(22, 24)
+(22, 25)
+(22, 26)
+(22, 27)
+(22, 28)
+(22, 29)
+(22, 30)
+21-06-2014 22:30 PLAY ./audio/mensaje.mp3
+21-06-2014 22:30 PLAY ./audio/mensaje.mp3
+(22, 31)
+(22, 33)
+(22, 34)
+(22, 35)

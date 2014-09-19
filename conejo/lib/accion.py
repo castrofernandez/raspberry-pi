@@ -8,7 +8,6 @@ import cola
 from random import randint
 
 import datetime
-import logging
 
 MENSAJE = os.path.join(os.path.dirname(__file__), "../audio/mensaje.mp3")
 MENSAJE_RUTA = './audio/mensaje.mp3'
@@ -71,8 +70,9 @@ class Accion:
   coloresPanza = ['Red', 'Green', 'Yellow', 'Violet',
                   'Teal', 'White', 'Orange']
 
-  def __init__(self, serie):
+  def __init__(self, serie, bitacora = None):
     self.serie = serie
+    self.bitacora = bitacora
 
   def decir(self, texto):
     accion = obtenerMP3('ES', texto, MENSAJE, MENSAJE_RUTA)
@@ -119,7 +119,7 @@ class Accion:
 
   def encolar(self, texto):
     cola.encolarComando(self.serie, texto)
-    Accion.log(texto)
+    self.__log(texto)
     #auditarPeticion(LOG, self.serie, None, None, texto)
 
   def __giro(self, sentido):
@@ -139,16 +139,11 @@ class Accion:
   @classmethod
   def encolarAccion(cls, serie, accion):
     cola.encolarComando(serie, accion)
-    Accion.log(accion)
     #auditarPeticion(LOG, serie, None, None, accion)
 
-  @classmethod
-  def log(cls, accion):
-    fecha = str(datetime.date.today())
-    LOG = os.path.join(os.path.dirname(__file__), "../log/acciones_%s.log" % fecha)
-
-    logging.basicConfig(filename = LOG, level = logging.INFO)
-    logging.info('%s %s' % (datetime.datetime.now().strftime("%d-%m-%Y %H:%M"), accion))
+  def __log(self, accion):
+    if self.bitacora != None:
+      self.bitacora.info('%s %s' % (datetime.datetime.now().strftime("%d-%m-%Y %H:%M"), accion))
 
 ################################################################################
 #                                     MAIN
