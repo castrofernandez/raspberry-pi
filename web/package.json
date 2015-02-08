@@ -1,0 +1,12 @@
+{
+  "name": "Raspberry",
+  "description": "Raspberry",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "4.x",
+    "express-handlebars": "*",
+    "request": "*",
+    "xml2js": "*"
+  }
+}
